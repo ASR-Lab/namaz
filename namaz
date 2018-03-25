@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    sehir=istanbul #varsayilan sehri buradan degistirebilirsiniz
+else
+    sehir=$1
+fi
+    
+SEHIR=${sehir^^} #buyuk harfe cevir
+
+VAKIT_L1="$SEHIR NAMAZ VAKİTLERİ"
+VAKIT_L2="İMSAK GÜNEŞ ÖĞLE İKİNDİ AKŞAM YATSI"
+VAKIT=$(curl -s https://www.haberler.com/$sehir/namaz-vakitleri/ | grep pngfix | grep class | grep -Eo '[0-9][0-9]:[0-9][0-9]' | tr '\n' ' ')
+
+if [ "$VAKIT" == "" ]; then #sonuc yok ise
+    echo "NOT: $SEHIR için namaz vakitlerine"
+    echo "ulaşılamamaktadır. Lütfen internet"
+    echo "bağlantınızı kontrol edin ve şehir"
+    echo "ismini küçük İngilizce karakterker-"
+    echo "lerle \"$0 kahramanmaras\" şek-"
+    echo "yazdığınızdan emin olun."
+    echo
+    echo "Bu sonuçlar en son çalıştırma sıra-"
+    echo "sında kaydedilmiştir."
+    echo 
+    cat .vakit
+else                        #sonuc var ise
+    echo $VAKIT_L1 | tee .vakit
+    echo $VAKIT_L2 | tee -a .vakit
+    echo $VAKIT | tee -a .vakit
+    echo >> .vakit
+    echo "Kayıt tarihi: $(date)" >> .vakit
+fi

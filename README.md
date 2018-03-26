@@ -8,7 +8,9 @@ ISTANBUL NAMAZ VAKİTLERİ
 ```
 # Kurulum
 `namaz` dosyasını bilgisayarınıza indirdikten sonra `chmod +x namaz` ile scripte çalıştırılabilir (executable) haklarını vermeniz gerekmektedir.  
-Tercihen `sudo cp namaz /usr/bin/` şeklinde script'i binary dosyaların saklandığı bir klasöre taşımanız daha sonra kullanımızı kolaylaştıracaktır.
+Tercihen `sudo cp namaz /usr/bin/` şeklinde script'i binary dosyaların saklandığı bir klasöre taşımanız daha sonra kullanımızı kolaylaştıracaktır.  
+  
+Bu script `curl`e ihtiyaç duymaktadır. Eğer bilgisayarınızda `curl` programı yüklü değilse `sudo apt install curl` (Ubuntu) gibi `curl`ü kurmanız gerekmektedir.
 
 # Kullanım
 Eğer `/usr/bin` gibi bir klasöre kopyaladıysanız bir terminal üzerinde: `namaz istanbul`  

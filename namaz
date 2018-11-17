@@ -22,7 +22,7 @@ if [ "$VAKIT" == "" ]; then #sonuc yok ise
     echo "ulaşılamamaktadır. Lütfen internet"
     echo "bağlantınızı kontrol edin ve şehir"
     echo "ismini küçük İngilizce karakterker-"
-    echo "lerle \"$0 kahramanmaras\" şek-"
+    echo "lerle \"$0 kahramanmaraş\" şek-"
     echo "yazdığınızdan emin olun."
     echo
     echo "Bu sonuçlar en son çalıştırma sıra-"
